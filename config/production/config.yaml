@@ -4,7 +4,7 @@ baseURL: https://site.clararigaud.osuny.site
 
 ## LANGUAGE
 defaultContentLanguage: fr
-defaultContentLanguageInSubdir: false
+defaultContentLanguageInSubdir: true
 
 ## CACHE
 deployment:
