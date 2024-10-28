@@ -5,10 +5,6 @@ items:
   target: "/fr/actualites/"
   kind: page
   children: []
-- title: Organisations
-  target: "/fr/organisations/"
-  kind: page
-  children: []
 - title: Projets
   target: "/fr/projets/"
   kind: page
