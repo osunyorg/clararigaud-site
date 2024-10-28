@@ -13,4 +13,8 @@ items:
   target: "/fr/recherche/"
   kind: page
   children: []
+- title: À propos
+  target: "/fr/a-propos/"
+  kind: page
+  children: []
 
