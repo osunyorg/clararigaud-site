@@ -1,12 +1,12 @@
 ---
 title: Main menu
 items:
-- title: Posts
-  target: "/en/posts/"
-  kind: page
-  children: []
 - title: Projects
   target: "/en/projects/"
+  kind: page
+  children: []
+- title: Posts
+  target: "/en/posts/"
   kind: page
   children: []
 
