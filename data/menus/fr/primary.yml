@@ -1,12 +1,12 @@
 ---
 title: Menu principal
 items:
-- title: Actualités
-  target: "/fr/actualites/"
-  kind: page
-  children: []
 - title: Projets
   target: "/fr/projets/"
+  kind: page
+  children: []
+- title: Actualités
+  target: "/fr/actualites/"
   kind: page
   children: []
 
