@@ -5,10 +5,6 @@ items:
   target: "/fr/projets/"
   kind: page
   children: []
-- title: Recherche
-  target: "/fr/recherche/"
-  kind: page
-  children: []
 - title: Actualités
   target: "/fr/actualites/"
   kind: page
