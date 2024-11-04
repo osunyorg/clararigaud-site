@@ -9,4 +9,8 @@ items:
   target: "/fr/a-propos/"
   kind: page
   children: []
+- title: Recherche
+  target: "/fr/actualites/publications/"
+  kind: category
+  children: []
 
