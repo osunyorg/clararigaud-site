@@ -5,12 +5,12 @@ items:
   target: "/en/projects/"
   kind: page
   children: []
-- title: À propos
-  target: "/en/a-propos/"
-  kind: page
-  children: []
 - title: Research
   target: "/en/posts/publications/"
   kind: category
+  children: []
+- title: À propos
+  target: "/en/a-propos/"
+  kind: page
   children: []
 
