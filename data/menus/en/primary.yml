@@ -9,4 +9,8 @@ items:
   target: "/en/a-propos/"
   kind: page
   children: []
+- title: Research
+  target: "/en/posts/publications/"
+  kind: category
+  children: []
 
