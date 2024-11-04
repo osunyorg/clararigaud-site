@@ -9,10 +9,6 @@ items:
   target: "/en/posts/publications/journals-and-conferences/"
   kind: category
   children: []
-- title: Posts
-  target: "/en/posts/"
-  kind: page
-  children: []
 - title: À propos
   target: "/en/a-propos/"
   kind: page
