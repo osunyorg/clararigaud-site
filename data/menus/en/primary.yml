@@ -5,6 +5,10 @@ items:
   target: "/en/projects/"
   kind: page
   children: []
+- title: Research
+  target: "/en/posts/publications/journals-and-conferences/"
+  kind: category
+  children: []
 - title: Posts
   target: "/en/posts/"
   kind: page
@@ -12,9 +16,5 @@ items:
 - title: À propos
   target: "/en/a-propos/"
   kind: page
-  children: []
-- title: Research
-  target: "/en/posts/publications/journals-and-conferences/"
-  kind: category
   children: []
 
