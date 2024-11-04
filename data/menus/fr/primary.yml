@@ -13,4 +13,8 @@ items:
   target: "/fr/a-propos/"
   kind: page
   children: []
+- title: Recherche
+  target: "/fr/actualites/publications/journals-and-conferences/"
+  kind: category
+  children: []
 
