@@ -5,6 +5,10 @@ items:
   target: "/fr/projets/"
   kind: page
   children: []
+- title: Recherche
+  target: "/fr/actualites/publications/journals-and-conferences/"
+  kind: category
+  children: []
 - title: Actualités
   target: "/fr/actualites/"
   kind: page
@@ -12,9 +16,5 @@ items:
 - title: À propos
   target: "/fr/a-propos/"
   kind: page
-  children: []
-- title: Recherche
-  target: "/fr/actualites/publications/journals-and-conferences/"
-  kind: category
   children: []
 
