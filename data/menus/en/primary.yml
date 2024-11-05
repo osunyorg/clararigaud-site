@@ -6,8 +6,8 @@ items:
   kind: page
   children: []
 - title: Research
-  target: "/en/posts/publications/"
-  kind: category
+  target: "/en/recherche/"
+  kind: page
   children: []
 - title: À propos
   target: "/en/a-propos/"
