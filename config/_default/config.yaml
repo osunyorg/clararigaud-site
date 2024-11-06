@@ -4,6 +4,91 @@ enableRobotsTXT: true
 removePathAccents: true
 params:
   summary:
-    position: hero
+    position: content
   search:
     active: false  
+  breadcrumb:
+    position: none
+  share_links:
+    enabled: false
+    email: false
+    facebook: false
+    linkedin: true
+    mastodon: false
+    telegram: false
+    twitter: false
+    whatsapp: false
+  logo:
+    header: "/assets/images/clararigo.svg"
+    footer: "/assets/images/clararigo2.svg"
+  pages:
+    default_image: false
+    index:
+      truncate_description: 0 # Set to 0 to disable truncate
+      layout: grid # grid | list
+  posts:
+    default_image: false
+    date_format: "January 2006"
+    index:
+      truncate_description: 0 # Set to 0 to disable truncate
+      layout: list # grid | list
+      options:
+        author: false
+        categories: false
+        date: false
+        image: false
+        reading_time: false
+        summary: true
+        subtitle: true
+  projects:
+    default_image: false
+    date_format: "2006"
+    index:
+      truncate_description: 0 # Set to 0 to disable truncate
+      layout: grid # grid | list
+      options:
+        categories: false
+        summary: true
+        year: true
+        subtitle: true
+
+  image_sizes:
+    design_system:
+      lightbox:
+        disabled: true
+        # TODO mobile et tablet
+        mobile:   1920x2560
+        tablet:   1920x2560
+        desktop:  1920x2560
+      gallerylightbox:
+        disabled: false
+    sections:
+  #     categories:
+  #       hero:
+  #         mobile:   400
+  #         tablet:   800
+  #         desktop:  750
+  #       hero_term:
+  #         mobile:   400
+  #         tablet:   800
+  #         desktop:  750
+  #     home:
+  #       hero:
+  #         mobile:   400
+  #         tablet:   800
+  #         desktop:  750
+  #     pages:
+  #       hero:
+  #         mobile:   400
+  #         tablet:   800
+  #         desktop:  750
+  #       item:
+  #         mobile:   350
+  #         tablet:   990
+  #         desktop:  600
+ 
+      projects:
+        hero_single:
+          mobile:   800
+          tablet:   1000
+          desktop:  3000
