@@ -42,16 +42,10 @@
                     border: 3px solid $color-border
                     padding: 5px
 
-.projects_categories__term
-    main
-        padding-bottom: $spacing-5
-
 header#document-header
     border-bottom: $header-border-bottom-width solid $color-border
     border-top: $header-border-bottom-width solid $color-border
     transform: rotate(-1deg)
-
-
 
 .dropdown-languages
     border: $header-border-bottom-width solid $color-border 
@@ -85,7 +79,9 @@ footer#document-footer
         order: 2
 
 
-
+.projects_categories__term
+    main
+        padding-bottom: $spacing-5
 
 .block-projects, .projects__section .projects
     &--grid
@@ -142,13 +138,87 @@ footer#document-footer
                     font-size: $body-size
                     line-height: $body-line-height
 
+.posts
+    &--list
+        &.without-images
+            article
+                border: none
+                margin-bottom: $spacing-2
+                padding: 0
+                + article
+                    margin-top: $spacing-2
+                @include in-page-without-sidebar
+                    border: none
+                    padding: 0
+                    + article
+                        margin-top: $spacing-2
+                .post-content
+                    align-items: center
+                    display: flex
+                    flex-direction: row
+                    flex-wrap: wrap
+                    gap: 0 $spacing-2
+                    .post-meta
+                        max-width: none
+                        order: 1
+                        position: initial
+                        text-align: left
+                        time 
+                            
+                            &::after
+                                content: ' >'
+                    .post-categories
+                        margin: 0
+                        order: 2
+                        li
+                            @include  meta
+                            &::after
+                                content: ')'
+                            &::before
+                                content: '('
+                            a
+                                color: $color-text
+                                text-decoration: none
+                    .post-title
+                        font-size: pxToRem(20)
+                        max-width: 100%
+                        order: 3
+                        text-transform: none
+                        width: 100%
+                        @include media-breakpoint-up(md)
+                            max-width: columns(8)
+
 .block-posts
     &--list
         .without-image
             .post-content
                 @include in-page-without-sidebar
                     width: 100%
-                    
+
+.term-news-short-news, .term-publications
+    article
+        border: none
+        padding: 0
+        + article
+            margin-top: $spacing-2
+        @include in-page-without-sidebar
+            border: none
+            padding: 0
+            + article
+                margin-top: $spacing-2
+        .post-title
+            font-size: pxToRem(20)
+            text-transform: none
+            a
+                pointer-events: none
+                &::before
+                    content: ''
+                &::after
+                    position: initial
+                    content: ''
+        [itemprop="abstract"] 
+            @include small
+            margin-top: $spacing-1
 
 .term-news-short-news
     .container
@@ -162,21 +232,8 @@ footer#document-footer
             transform: rotate(-1deg)
             border: $header-border-bottom-width solid $color-border
     article
-        border: none
-        padding: 0
-        + article
-            margin-top: $spacing-2
         .post-title
-            font-size: pxToRem(20)
-            text-transform: none
             order: 2
-            a
-                pointer-events: none
-                &::before
-                    content: ''
-                &::after
-                    position: initial
-                    content: ''
         .post-meta
             order: 1
             position: initial
@@ -190,7 +247,6 @@ footer#document-footer
                 content: ':'
                 margin-right: 2px
         [itemprop="abstract"] 
-            @include small
             order: 3
             
         .post-content
@@ -200,42 +256,20 @@ footer#document-footer
             flex-wrap: wrap
             justify-content: flex-start
         @include in-page-without-sidebar
-            border: none
-            padding: 0
-            + article
-                margin-top: $spacing-2
             .post-meta
                 position: initial
-            [itemprop="abstract"] 
+            [itemprop="abstract"]
                 margin-left: columns(2)
                 width: columns(10)
 
 .term-publications
     article
-        border: none
-        padding: 0
-        + article
-            margin-top: $spacing-3
-        @include in-page-without-sidebar
-            border: none
-            padding: 0
-            + article
-                margin-top: $spacing-3
         hgroup
             display: flex
             flex-shrink: 1
             flex-wrap: wrap
             justify-content: flex-start
-        .post-title
-            font-size: pxToRem(20)
-            text-transform: none
-            a
-                pointer-events: none
-                &::before
-                    content: ''
-                &::after
-                    position: initial
-                    content: ''
+
         .post-subtitle
             font-size: pxToRem(20)
             text-transform: none
@@ -246,9 +280,7 @@ footer#document-footer
                 margin-right: 3px
         .post-meta
             display: none
-        [itemprop="abstract"] 
-            @include small
-            margin-top: 0
+
 .block-chapter
     .chapter
         .text
@@ -281,7 +313,6 @@ footer#document-footer
         .video
             @include in-page-without-sidebar
                 grid-column: 12 span
-
 
 .block-siblings-navigation
     margin-bottom: 0
