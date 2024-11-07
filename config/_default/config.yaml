@@ -34,12 +34,12 @@ params:
       layout: list # grid | list
       options:
         author: false
-        categories: false
-        date: false
+        categories: true
+        date: true
         image: false
         reading_time: false
-        summary: true
-        subtitle: true
+        summary: false
+        subtitle: false
   projects:
     default_image: false
     date_format: "2006"

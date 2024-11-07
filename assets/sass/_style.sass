@@ -113,8 +113,15 @@ footer#document-footer
         display: none
     .block-projects--grid
         .grid
+            .project-content
+                flex-wrap: wrap
+                gap: 0
+                width: 100%
             @include media-breakpoint-up(desktop)
                 grid-template-columns: repeat(3, 1fr)
+            h3
+                font-size: $h3-size
+                word-break: keep-all
     .blocks
         .block:first-child
             padding-top: calc(var(--header-height) + var(--grid-gutter))
@@ -188,6 +195,37 @@ footer#document-footer
                         @include media-breakpoint-up(md)
                             max-width: columns(8)
 
+
+.posts__page
+    &:not(.full-width)
+        .section-sidebar
+            margin-bottom: 0
+            position: initial
+            width: 100%
+            .post-infos
+                display: flex
+                gap: 0 $spacing-2
+            li
+                border: none
+                display: block
+                margin: 0
+                > span
+                    display: none
+                > ul
+                    text-align: left
+                    a
+                        color: $color-text
+                        text-decoration: none
+            .reading-time
+                display: none
+        .document-content 
+            .block
+                margin-top: 0
+                .block-content
+                    padding: 0
+                    .lead
+                        text-transform: none
+            
 .block-posts
     &--list
         .without-image
@@ -224,7 +262,6 @@ footer#document-footer
     .container
         .block-title
             a
-                pointer-events: none
                 &::after
                     content: ''
         @include media-breakpoint-up(desktop)
