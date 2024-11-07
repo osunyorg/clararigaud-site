@@ -17,6 +17,8 @@ en:
       instagram: >-
         https://www.instagram.com/clararigo_/
   permalinks:
+    events: /agenda/:year-:month-:day-:slug/
+    events_categories: /agenda/:slug/
     projects: /projects/:year-:slug/
     projects_categories: /projects/:slug/
     posts: /posts/:year-:month-:day-:slug/
@@ -54,6 +56,8 @@ fr:
       instagram: >-
         https://www.instagram.com/clararigo_/
   permalinks:
+    events: /agenda/:year-:month-:day-:slug/
+    events_categories: /agenda/:slug/
     projects: /projets/:year-:slug/
     projects_categories: /projets/:slug/
     posts: /actualites/:year-:month-:day-:slug/
