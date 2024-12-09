@@ -7,15 +7,30 @@ en:
   languageCode: en
   languageName: English
   params:
-    social:
-      email: >-
-        allo@clararigaud.com
-      github: >-
-        https://github.com/Clararigaud
-      linkedin: >-
-        https://www.linkedin.com/in/clararigaud/
-      instagram: >-
-        https://www.instagram.com/clararigo_/
+    contact_details:
+      emails:
+        email:
+          label: >-
+            allo@clararigaud.com
+          value: >-
+            mailto:allo@clararigaud.com
+      social_networks:
+        github:
+          label: >-
+            Clararigaud
+          value: >-
+            https://github.com/Clararigaud
+        instagram:
+          label: >-
+            clararigo_
+          value: >-
+            https://instagram.com/clararigo_
+        linkedin:
+          label: >-
+            clararigaud
+          value: >-
+            https://www.linkedin.com/in/clararigaud/
+
   permalinks:
     events: /agenda/:year-:month-:day-:slug/
     events_categories: /agenda/:slug/
@@ -43,15 +58,30 @@ fr:
   languageCode: fr
   languageName: Français
   params:
-    social:
-      email: >-
-        allo@clararigaud.com
-      github: >-
-        https://github.com/Clararigaud
-      linkedin: >-
-        https://www.linkedin.com/in/clararigaud/
-      instagram: >-
-        https://www.instagram.com/clararigo_/
+    contact_details:
+      emails:
+        email:
+          label: >-
+            allo@clararigaud.com
+          value: >-
+            mailto:allo@clararigaud.com
+      social_networks:
+        github:
+          label: >-
+            Clararigaud
+          value: >-
+            https://github.com/Clararigaud
+        instagram:
+          label: >-
+            clararigo_
+          value: >-
+            https://instagram.com/clararigo_
+        linkedin:
+          label: >-
+            clararigaud
+          value: >-
+            https://www.linkedin.com/in/clararigaud/
+
   permalinks:
     events: /agenda/:year-:month-:day-:slug/
     events_categories: /agenda/:slug/
