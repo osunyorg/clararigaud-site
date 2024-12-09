@@ -4,13 +4,14 @@ breadcrumb_title: >-
 title: >-
   Accueil
 url: "/fr/"
+slug: ""
 date: 2024-09-29T11:53:03+02:00
 lastmod: 2024-12-01T19:03:16+01:00
 meta:
   hugo:
     permalink: "/fr/"
+    path: "/"
     file: "content/fr/_index.html"
-    path: ""
     slug: ""
   dates:
     created_at: 2024-01-18T14:22:40+01:00
@@ -68,9 +69,10 @@ contents:
       self: 2
     data:
       page:
-        path: "/fr/a-propos/"
+        permalink: "/fr/a-propos/"
+        path: "/pages/a-propos"
         slug: "a-propos"
-        file: "pages/a-propos/_index.html"
+        file: "content/fr/pages/a-propos/_index.html"
       options:
         image: false
         main_summary: true
@@ -78,6 +80,7 @@ contents:
 
       layout: large
       pages:
+
 
 
   - kind: block
@@ -113,18 +116,30 @@ contents:
         year: true
 
       projects:
-        - slug: "diyauto-orchestra"
-          file: "projects/2024-diyauto-orchestra.html"
-        - slug: "zombitron"
-          file: "projects/2024-zombitron.html"
-        - slug: "capush"
-          file: "projects/2022-capush.html"
-        - slug: "screenshot003"
-          file: "projects/2019-screenshot003.html"
-        - slug: "lifezones"
-          file: "projects/2018-lifezones.html"
-        - slug: "lzs-254"
-          file: "projects/2018-lzs-254.html"
+        - permalink: "/fr/projets/2024-diyauto-orchestra/"
+          path: "/projects/2024-diyauto-orchestra"
+          slug: "diyauto-orchestra"
+          file: "content/fr/projects/2024-diyauto-orchestra.html"
+        - permalink: "/fr/projets/2024-zombitron/"
+          path: "/projects/2024-zombitron"
+          slug: "zombitron"
+          file: "content/fr/projects/2024-zombitron.html"
+        - permalink: "/fr/projets/2022-capush/"
+          path: "/projects/2022-capush"
+          slug: "capush"
+          file: "content/fr/projects/2022-capush.html"
+        - permalink: "/fr/projets/2019-screenshot003/"
+          path: "/projects/2019-screenshot003"
+          slug: "screenshot003"
+          file: "content/fr/projects/2019-screenshot003.html"
+        - permalink: "/fr/projets/2018-lifezones/"
+          path: "/projects/2018-lifezones"
+          slug: "lifezones"
+          file: "content/fr/projects/2018-lifezones.html"
+        - permalink: "/fr/projets/2018-lzs-254/"
+          path: "/projects/2018-lzs-254"
+          slug: "lzs-254"
+          file: "content/fr/projects/2018-lzs-254.html"
 
 
   - kind: block
@@ -138,7 +153,7 @@ contents:
       children: 4
     data:
       mode: category
-      category: "/news-short-news/"
+      category: "news/short-news"
       layout: list
       options:
         author: false
@@ -150,16 +165,47 @@ contents:
         summary: true
 
       posts:
-        - "2024/2024-11-07-biennale-chroniques-2024"
-        - "2024/2024-10-09-festival-maintenant-rennes"
-        - "2024/2024-10-01-residence-a-villette-makerz-paris-2024"
-        - "2024/2024-09-19-cafe-tmnlab"
-        - "2024/2024-09-09-residence-aux-usines-liguge-2024"
-        - "2023/2023-06-15-phd-defense-2023"
-        - "2023/2023-04-05-talk-ihm23"
-        - "2023/2023-04-03-mention-cnrs-2023"
-        - "2022/2022-11-11-talk-cscw22"
-        - "2022/2022-02-13-talk-at-the-tei-conference-22"
+        - permalink: "/fr/actualites/2024-11-07-biennale-chroniques-2024/"
+          path: "/posts/2024/2024-11-07-biennale-chroniques-2024"
+          slug: "biennale-chroniques-2024"
+          file: "content/fr/posts/2024/2024-11-07-biennale-chroniques-2024.html"
+        - permalink: "/fr/actualites/2024-10-09-festival-maintenant-rennes/"
+          path: "/posts/2024/2024-10-09-festival-maintenant-rennes"
+          slug: "festival-maintenant-rennes"
+          file: "content/fr/posts/2024/2024-10-09-festival-maintenant-rennes.html"
+        - permalink: "/fr/actualites/2024-10-01-residence-a-villette-makerz-paris-2024/"
+          path: "/posts/2024/2024-10-01-residence-a-villette-makerz-paris-2024"
+          slug: "residence-a-villette-makerz-paris-2024"
+          file: "content/fr/posts/2024/2024-10-01-residence-a-villette-makerz-paris-2024.html"
+        - permalink: "/fr/actualites/2024-09-19-cafe-tmnlab/"
+          path: "/posts/2024/2024-09-19-cafe-tmnlab"
+          slug: "cafe-tmnlab"
+          file: "content/fr/posts/2024/2024-09-19-cafe-tmnlab.html"
+        - permalink: "/fr/actualites/2024-09-09-residence-aux-usines-liguge-2024/"
+          path: "/posts/2024/2024-09-09-residence-aux-usines-liguge-2024"
+          slug: "residence-aux-usines-liguge-2024"
+          file: "content/fr/posts/2024/2024-09-09-residence-aux-usines-liguge-2024.html"
+        - permalink: "/fr/actualites/2023-06-15-phd-defense-2023/"
+          path: "/posts/2023/2023-06-15-phd-defense-2023"
+          slug: "phd-defense-2023"
+          file: "content/fr/posts/2023/2023-06-15-phd-defense-2023.html"
+        - permalink: "/fr/actualites/2023-04-05-talk-ihm23/"
+          path: "/posts/2023/2023-04-05-talk-ihm23"
+          slug: "talk-ihm23"
+          file: "content/fr/posts/2023/2023-04-05-talk-ihm23.html"
+        - permalink: "/fr/actualites/2023-04-03-mention-cnrs-2023/"
+          path: "/posts/2023/2023-04-03-mention-cnrs-2023"
+          slug: "mention-cnrs-2023"
+          file: "content/fr/posts/2023/2023-04-03-mention-cnrs-2023.html"
+        - permalink: "/fr/actualites/2022-11-11-talk-cscw22/"
+          path: "/posts/2022/2022-11-11-talk-cscw22"
+          slug: "talk-cscw22"
+          file: "content/fr/posts/2022/2022-11-11-talk-cscw22.html"
+        - permalink: "/fr/actualites/2022-02-13-talk-at-the-tei-conference-22/"
+          path: "/posts/2022/2022-02-13-talk-at-the-tei-conference-22"
+          slug: "talk-at-the-tei-conference-22"
+          file: "content/fr/posts/2022/2022-02-13-talk-at-the-tei-conference-22.html"
+
 
 
 
