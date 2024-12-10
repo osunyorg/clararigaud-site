@@ -1,0 +1,78 @@
+.page__home
+    .hero
+        display: none
+    .block-projects--grid
+        .grid
+            .project-content
+                flex-wrap: wrap
+                gap: 0
+                width: 100%
+            @include media-breakpoint-up(desktop)
+                grid-template-columns: repeat(3, 1fr)
+            h3
+                font-size: $h3-size
+                word-break: keep-all
+    .blocks
+        .block:first-child
+            padding-top: calc(var(--header-height) + var(--grid-gutter))
+            .block-content
+                display: flex
+                justify-content: flex-start
+    .block-pages
+        &--large 
+            .top
+                margin-bottom: 0
+                display: flex
+                flex-direction: column-reverse
+                .block-title
+                    margin-top: $spacing-3
+                    margin-bottom: 0
+                .block-title:not(.hidden)
+                    margin-left: 0
+                .description
+                    margin-left: 0 !important
+                    font-family: $body-font-family
+                    font-size: $body-size
+                    line-height: $body-line-height
+
+
+    .block-posts
+        .container
+            .block-title
+                a
+                    &::after
+                        content: ''
+            @include media-breakpoint-up(desktop)
+                padding: var(--grid-gutter)
+                transform: rotate(-1deg)
+                border: $header-border-bottom-width solid $color-border
+        article
+            .post-title
+                order: 2
+            .post-meta
+                order: 1
+                position: initial
+                time
+                    @include h3
+                    text-transform: none
+                    font-size: pxToRem(20)
+                &::before
+                    content: '>'
+                &::after
+                    content: ':'
+                    margin-right: 2px
+            [itemprop="abstract"] 
+                order: 3
+                
+            .post-content
+                align-items: baseline
+                display: flex
+                flex-direction: row
+                flex-wrap: wrap
+                justify-content: flex-start
+            @include in-page-without-sidebar
+                .post-meta
+                    position: initial
+                [itemprop="abstract"]
+                    margin-left: columns(2)
+                    width: columns(10)

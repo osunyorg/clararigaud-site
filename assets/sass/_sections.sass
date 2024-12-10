@@ -1,0 +1,59 @@
+.projects_categories__term
+    main
+        padding-bottom: $spacing-5
+
+.block-projects, .projects__section .projects
+    &--grid
+        .project
+            aspect-ratio: 1
+            border: 3px solid $color-border
+            @include media-breakpoint-down(md)
+                aspect-ratio: 4
+            &-content
+                background-color: white
+                border-left: none
+                border: $header-border-bottom-width solid $color-border
+                margin-top: 20%
+                padding: 3px
+                width: fit-content
+                [itemprop="abstract"] 
+                    display: none
+            .media
+                margin-left: 0
+                z-index: -2
+                img
+                    height: 100%
+                    object-fit: cover
+                    position: absolute
+                    width: 100%
+
+
+.posts__page
+    &:not(.full-width)
+        .section-sidebar
+            margin-bottom: 0
+            position: initial
+            width: 100%
+            .post-infos
+                display: flex
+                gap: 0 $spacing-2
+            li
+                border: none
+                display: block
+                margin: 0
+                > span
+                    display: none
+                > ul
+                    text-align: left
+                    a
+                        color: $color-text
+                        text-decoration: none
+            .reading-time
+                display: none
+        .document-content 
+            .block
+                margin-top: 0
+                .block-content
+                    padding: 0
+                    .lead
+                        text-transform: none
