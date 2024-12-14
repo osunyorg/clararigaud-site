@@ -5,15 +5,18 @@ items:
   target: "/en/projects/"
   kind: page
   children: []
+  path: "/projects"
   file: content/en/projects/_index.html
 - title: Research
   target: "/en/recherche/"
   kind: page
   children: []
+  path: "/pages/recherche"
   file: content/en/pages/recherche/_index.html
 - title: About
   target: "/en/a-propos/"
   kind: page
   children: []
+  path: "/pages/a-propos"
   file: content/en/pages/a-propos/_index.html
 
