@@ -2,6 +2,11 @@
 
 baseURL: https://www.clararigaud.fr/
 
+## OSUNY
+osuny:
+  website:
+    id: b248514f-3d39-4c65-b484-553cbe88c5c5
+
 ## LANGUAGE
 defaultContentLanguage: fr
 defaultContentLanguageInSubdir: true
