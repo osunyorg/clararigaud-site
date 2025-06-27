@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Clara Rigaud" />
+  <title>Zombitron: towards a toolbox for repurposing obsolete smartphones into new interactive systems</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Zombitron: towards a toolbox for repurposing obsolete
+smartphones into new interactive systems</h1>
+<p class="author">Clara Rigaud</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>This article explores the possibilities of reusing obsolete
+smartphones and tablets to build new interactive systems. Taking the
+case of a musical instrument, I present my research into the design of a
+controller made from various of these obsolete smartphones. From the
+diagnostic stage to the creation of a new autonomous electronic object,
+I document the process, the barriers and the levers encountered. Based
+on these explorations and discussions with two professional musicians, I
+provide several insights into the software and hardware aspects, with a
+view to continuing this work, towards the creation of an open-source
+toolkit enabling anyone to build new interactive systems with old
+devices. I discuss the implication of how a high-level web-based
+approach could allow designers to enter the black box and foster
+permacomputing using smartphones.</p>
+</div>
+</header>
+<h1 id="introduction">Introduction</h1>
+<p>As electronic devices become increasingly widespread across the
+globe, mountains of electronic waste are reaching new heights. A recent
+report of the Global E-waste Monitor <span class="citation"
+data-cites="balde_global_2024"></span> estimates that 62 billion kg of
+electronic waste has been generated worldwide in 2022. Of this 62
+billion, only 22% is documented as being recycled in a controlled and
+environmentally-friendly way and 22% is stored as waste in open dumps.
+The remaining 56% is recycled in uncontrolled circuits, which may
+release materials such as mercury or plastic into the environment
+exposing people to unhealthy work and unsanitary conditions <span
+class="citation" data-cites="rifat_breaking_2019"></span>.</p>
+<p>Smartphones and other communication devices account for 8% of this
+waste. They are often abandoned because the battery no longer works, the
+screen is broken, they do not have enough memory space, the software is
+obsolete or they are replaced with more recent technology <span
+class="citation"
+data-cites="prabhu_n_disposal_2023 mosesso_obsolescence_2023"></span>.
+Most of the time, these devices are kept by their owners and are not
+recycled, repaired or reused <span class="citation"
+data-cites="prabhu_n_disposal_2023"></span>. This means that there are
+plenty of phones lying dormant in the drawers of millions of people
+<span class="citation"
+data-cites="ademe_longue_2023 wilson_hibernating_2017"></span>.</p>
+<p>Of course, work is being done on how to reduce this waste generated
+by smartphones. In particular, the main approach is to extend their
+lifespan, which is not always easy, given that many manufacturers make
+their equipment obsolete, and even base their business models on this
+obsolescence. More recently, legislative constraints have been
+implemented, and initiatives such as the reparability index or
+durability index have appeared in France <span class="citation"
+data-cites="ademe_preparatory_2021 noauthor_decret_2024 noauthor_decret_2020"></span>
+to limit this obsolescence, but this only applies to the most recently
+built devices, leaving a whole range of these smartphones out of use.
+Another way of extending the life of smartphones is to refurbish them
+and buy them second-hand when the owner wants to get rid of them, but
+this only concerns the most recent models as well, leaving obsolete
+models aside.</p>
+<p>The case I am interested in is the one where technologies are still
+functional but have been rendered obsolete anyway because they cannot
+keep up with current usage. For example, because they only have 3G,
+they’re no longer powerful enough to support the latest software
+updates, or their storage memory is saturated <span class="citation"
+data-cites="mosesso_obsolescence_2023 magnier_replaced_2022"></span>.
+Although there are ways of prolonging the use of one’s smartphone,
+prolonging the life of an obsolete device requires compromises in terms
+of use or advanced technical knowledge.</p>
+<p>In this article, I propose a new approach consisting of combining
+several obsolete smartphones with each other to enable the creation of a
+new interactive system. I explore the possibilities that old devices can
+offer with an approach as high-level as possible, that does not involve
+reinstalling a custom OS, and that does not require a high degree of
+coding knowledge. After a brief overview of the existing works, I
+present the <span class="math inline"><em>Zombitron</em></span> project,
+which consists of setting up a toolbox of design and open-source
+software, and detail my explorations in the construction of this
+toolbox. Then, on the basis of these initial explorations, I document my
+research into the design of a new interactive system from the very first
+stage of getting it up and running. Using 14 discarded smartphones, I
+detail step-by-step the operations and problems encountered, and how
+these can be work-around, depending on the version of the operating
+system (OS), their performance and their general state of repair. Then,
+I present the discussions I had with two professional musicians on how
+this tool could be integrated into their work and practice, giving
+promising leads as to the appropriation of this approach. Finally, I
+explore the possible directions this work could take, in particular in
+the context of musical interfaces, to enable rapid prototyping, or as a
+pedagogical tool.</p>
+<h1 id="background-and-related-work">Background and related work</h1>
+<p>Smartphones and other communication devices account for 8% of the
+total of E-waste generated worldwide <span class="citation"
+data-cites="balde_global_2024"></span>. Obsolescence is the main reason
+why connected devices end-up being discarded, often because of
+limitations in terms of storage memory, computing capacity or
+communication protocols, which no longer allow the device to function in
+a wider technical ecosystem <span class="citation"
+data-cites="boano_enabling_2021"></span>.</p>
+<p>In addition to obsolescence, smartphones and tablets, compared to
+other communication devices, are also affected by a phenomenon of
+frequent renewal linked to the evolution of the perception of the value
+of their device by their owner <span class="citation"
+data-cites="magnier_replaced_2022"></span>. The average length of use of
+smartphones by their first owner is estimated at 3.5 years in Western
+Europe <span class="citation"
+data-cites="magnier_replaced_2022"></span>. Smartphone obsolescence is
+particularly linked to rapidly evolving technology and therefore to
+software that becomes more demanding in terms of resources and is only
+maintained a few years after its release. For example, in the case of
+Apple products, the latest OS version supported at the time of writing
+is IOS 18 <a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>, and the last device to be able to
+install version 17 is the iPhone XS<a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a> released in 2018. This
+means that all Apple smartphones released before 2018 can no longer get
+updates (including security updates). Android devices suffer from the
+same problem, with the difference that it is possible to install more
+recent versions of Android on older devices, which are more resources
+demanding and may not be suited to the configuration of an older phone.
+Generally speaking, the applications that are loaded onto smartphones
+and tablets are becoming more and more memory- and compute-intensive,
+slowing down devices and limiting their overall usability <span
+class="citation" data-cites="mosesso_obsolescence_2023"></span>.</p>
+<p>The main problem with smartphones renewal, is knowing what to do with
+them once they are no longer in use. The first approach is to
+reintegrate them into recovery circuits, either by recycling them, which
+recovers the rare metals that make up these devices (and therefore
+reduces the devastating extraction of these components), or by extending
+their life through refurbishing services or reuse strategies <span
+class="citation" data-cites="prabhu_n_disposal_2023"></span>.
+Refurbishing smartphones is a quite popular strategy since it has
+advantages for both manufacturers and consumers, but it is only reserved
+for the most recent products, and does not guarantee the lifespan or
+reliability of the refurbished device <span class="citation"
+data-cites="hazelwood_life_2021"></span>. Furthermore, the recycling and
+reuse circuits are not always beneficial from an environmental and
+health point of view due to the infrastructures and standards in
+different parts of the world <span class="citation"
+data-cites="balde_global_2024"></span> and the rebound effects linked to
+energy expenditure and greenhouse gas emissions <span class="citation"
+data-cites="zink_comparative_2014 makov_does_2018"></span>. In addition,
+many of these devices are not integrated into the recycling or
+refurbishing circuits at all. Wilson et al.<span class="citation"
+data-cites="wilson_hibernating_2017"></span> found in their 2017 study
+that over 50% of participants keep at least one mobile phone at home
+that they have replaced, usually “as a spare”. In France, ADEME <span
+class="citation" data-cites="ademe_longue_2023"></span> estimates that 1
+million smartphones are lying dormant in French people’s drawers.</p>
+<p>Studies have explored how to extend the life of obsolete devices,
+through alternatives and strategies for continuing to use them as their
+main smartphones. For example, Mosesso et al.<span class="citation"
+data-cites="mosesso_obsolescence_2023"></span> have studied the
+different reasons and strategies used by people who continue to use
+their obsolete smartphones. Goodwin et al.<span class="citation"
+data-cites="goodwin_quantifying_2023"></span> explored the availability
+of applications on obsolete Apple devices. These two studies conclude
+that it is possible to find ways of continuing to use ageing
+smartphones, but that these strategies often require compromises or
+extra effort that not all users are prepared to commit to. Some of these
+techniques may as well involve extra skills, for example to install new
+alternative OSes<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> on Android smartphones.</p>
+<p>Another approach to reuse is to repurpose obsolete smartphones <span
+class="citation"
+data-cites="hansson_decade_2021 zink_comparative_2014 blevis_sustainable_2007"></span>
+so that they can be specialised to a precise task, better suited to
+their performance. For example Switzer et al.<span class="citation"
+data-cites="switzer_junkyard_2023"></span> explored techniques to
+repurpose smartphones into specialised servers for cloud computing.
+Klugman et al.<span class="citation"
+data-cites="klugman_android_2018"></span> and Norbisrath et al.<span
+class="citation" data-cites="norbisrath_empowering_2025"></span>
+explored how to turn them into gateways for IOT. Smartphones and tablets
+can also be repurposed to be dedicated to a particular application
+downloaded into it, for example in educational contexts <span
+class="citation" data-cites="li_smartphone_2010"></span>. The main
+obstacles in this repurposing lie in the heterogeneity of devices <span
+class="citation" data-cites="li_smartphone_2010"></span> and the
+relatively expert operations involved, if this repurposing goes beyond
+simply downloading a dedicated application. In addition, Apple
+smartphones are poorly represented in smartphone repurposing projects as
+they do not allow the installation of third party applications.</p>
+<p>Repurposing techniques are popular in the Do It Yourself and hacking
+communities <span class="citation"
+data-cites="wakkary_sustainable_2013 lu_unmaking_2024"></span>, and are
+attracting widespread interest from researchers in sustainable human
+computer interaction <span class="citation"
+data-cites="jackson_breakdown_2014"></span>. In particular, the
+burgeoning permacomputing <span class="citation"
+data-cites="mansoux_permacomputing_2023"></span> movement is interested
+in what can be done with what exists in terms of technological hardware,
+and in particular in creation. This movement brings together not so
+recent approaches of creation but which, now, in the current context,
+are tinged with a particular urgency. Reuse in design has been a
+particular focus of Nicolas Nova <span class="citation"
+data-cites="nova_du_2020"></span>, who presents the reuse of old
+technologies as a low-tech approach to design. Some new media artists
+are incorporating the reuse of dysfunctional and obsolete objects into
+their artistic practice, in line with the Zombie-media concept <span
+class="citation" data-cites="hertz_zombie_2012"></span>. This is the
+case, for example, of Recyclism<a href="#fn4" class="footnote-ref"
+id="fnref4" role="doc-noteref"><sup>4</sup></a>, who have been exploring
+the revival of obsolete technologies for many years now. Others use
+electronic waste in their work to send out a message about technological
+consumption <span class="citation"
+data-cites="argabrite_technology_2022"></span>. The permacomputing
+approach is also closely linked to that of demoscene, which since the
+80s has been exploring the most restrictive ways of creating animations
+or music on the few remaining bits available on the first game consoles,
+and still today continues to gather around “release parties” where
+everyone comes to take part in demo<a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a> competitions in their
+own category (weight/platform).</p>
+<p>While these DIY communities are reputed for their openness and habit
+of sharing knowledge and technique <span class="citation"
+data-cites="wakkary_sustainable_2013 rigaud_ressources_2023"></span>,
+the fact remains that these practices are reserved for relatively expert
+users. Electronic objects have become smaller and complex <span
+class="citation" data-cites="girard_computing_2024"></span>, and the
+smartphone has become a little box filled with different sensors that
+are difficult to reuse and tamper with <span class="citation"
+data-cites="nova_figures_2018"></span>. A few soldering points are no
+longer enough to hack and bend must devices, leaving the reuse of
+obsoletes smartphones relatively absent from these projects.</p>
+<p>In response to the increasing complexity of electronic devices, which
+makes certain sustainable practices difficult for the general public to
+access, Roedl et al.<span class="citation"
+data-cites="roedl_sustainable_2015"></span> encourages HCI researchers
+to develop tools to help with the appropriation of these practices and
+techniques. Similarly, Lu et al.<span class="citation"
+data-cites="lu_unmaking_2024"></span> argues for a field of HCI research
+focusing on the design of tools for recycling, recovery and reuse.</p>
+<p>In a nutshell, there are initiatives and contexts in which the reuse
+of obsolete smartphones can be explored. But the complexity of these
+devices and their heterogeneity require advanced technical knowledge,
+which can act as a barrier to their reuse. It is therefore crucial to
+design tools to encourage and facilitate the appropriation of techniques
+for repurposing these obsolete devices, and fully integrate obsolete
+smartphones in the permacomputing garden.</p>
+<h1 id="zombitron-project-and-principle">Zombitron project and
+principle</h1>
+<p>The aim of this article is to present the initial work on the design
+of new interactive systems using a high-level approach through the <span
+class="math inline"><em>Zombitron</em></span> project. The aim of <span
+class="math inline"><em>Zombitron</em></span> is to enable new systems
+to be designed from obsolete smartphones and tablets, taking into
+account their heterogeneity. Given that these devices offer many
+possibilities in terms of connectivity and interactivity, the objective
+is to explore how we can continue to benefit from them. <span
+class="math inline"><em>Zombitron</em></span> aims to make the design of
+new systems based on these devices accessible by facilitating access to
+the functionalities of the black box that are smartphones and tablets,
+and to become an open-source and collaborative tool enabling artists and
+everyone to address these issues of obsolescence in the case of the
+smartphone.</p>
+<h2 id="principle">Principle</h2>
+<figure id="fig:zombitronprinciple">
+<img src="images/principle.jpg" />
+<figcaption>The basic idea behind <span
+class="math inline"><em>Zombitron</em></span> is to connect several
+smartphones together to share their information.</figcaption>
+</figure>
+<p>The <span class="math inline"><em>Zombitron</em></span> principle is
+based on the fact that whatever the release date of a smartphone and its
+OS, it has a WiFi card and a browser. From there, it is possible to
+connect these smartphones and tablets to a server that displays web
+interfaces and exchanges information via the WiFi connection.</p>
+<p>As shown (Figure <a href="#fig:zombitronprinciple"
+data-reference-type="ref"
+data-reference="fig:zombitronprinciple">1</a>), the system is composed
+of different units that can be any connected device with a browser:</p>
+<ol>
+<li><p>A unit that acts as a hotspot so that others can connect to it
+locally.</p></li>
+<li><p>A unit that runs a terminal enabling a <span
+class="math inline"><em>Node.js</em></span> instance to be run and an
+<code>http</code> server to be generated on this network, also enabling
+the <code>websocket</code> protocol.</p></li>
+<li><p>One or more units that will connect to the server as web
+clients.</p></li>
+</ol>
+<p>For example, depending on its configuration, a unit can act as a
+hotspot (1), run the server (2) and display a web interface (3). It is
+also possible to use a computer to run the server and an external router
+to create a local network.</p>
+<p>The way in which the system is implemented will essentially depend on
+the capabilities of each of the units:</p>
+<h3 id="creating-a-local-network">Creating a local network</h3>
+<p>There are several ways of creating a local network. The simplest way
+is to use a dedicated router, for example an internet box. But in the
+case of an interface designed to be autonomous and operate without any
+devices other than the smartphones and tablets it is made up of, a
+shared connection needs to be set up. To do this, it is possible to
+activate tethering mode on certain devices. This option is widely
+available, but some OSes do not allow this option to be activated if
+there is no access to mobile data. The unit bundle must therefore
+include at least one device enabling tethering without mobile data.</p>
+<h3 id="running-a-server-with-textitnode.js">Running a server with <span
+class="math inline"><em>Node.js</em></span></h3>
+<p>To run a <span class="math inline"><em>Node.js</em></span> server,
+one of the units needs to be able to run a terminal. To do this, <span
+class="math inline"><em>Zombitron</em></span> uses the <span
+class="math inline"><em>Termux</em></span> application, which emulates a
+Linux terminal on Android devices. This enables packages to be
+downloaded using “apt” and <span
+class="math inline"><em>Node.js</em></span> to be run. With <span
+class="math inline"><em>Node.js</em></span>, an <code>http</code> server
+is set up to deliver webpages to other units connected to the network,
+and a <code>websockets</code> server is used to send data between units
+in real time.</p>
+<h3 id="displaying-web-interfaces">Displaying web interfaces</h3>
+<figure id="fig:principlewebpage">
+<img src="images/webpages.png" />
+<figcaption>This images shows how one can create a new interface by
+loading webpages on different smartphones.</figcaption>
+</figure>
+<p>Once this environment has been set up, it is possible to set up any
+web application that is capable of being executed on the smartphone
+browser. For example, figure <a href="#fig:principlewebpage"
+data-reference-type="ref" data-reference="fig:principlewebpage">2</a>
+shows the control interfaces loaded on different smartphones composing
+music. Each smartphone displays a webpage and can send messages related
+to touch events to the other units.</p>
+<h2 id="first-explorations">First explorations</h2>
+<p>Based on this principle, two musical instrument prototypes have been
+designed: <em>Zombitronica</em> and <em>Zombichord</em>. These two
+prototypes are built using the <em>Tone.js</em> library dedicated to
+sound synthesis through web audio <span class="citation"
+data-cites="jensenius_2013_2017"></span>. From a hardware point of view,
+both are built from reused materials, and operate in standalone
+mode.</p>
+<h3 id="zombitronica">Zombitronica</h3>
+<figure id="fig:zombitronicacontrollers">
+<img src="images/zombitronica.png" />
+<figcaption>Zombitronica is the first prototype exploring the principle
+of <span class="math inline"><em>Zombitron</em></span>, made with 4
+discarded smartphones and a loud-speaker.</figcaption>
+</figure>
+<p>Zombitronica is the first prototype based on 4 smartphones and a
+loudspeaker, all second-hand. The interface has been designed to explore
+different types of touch controllers for generating music (Figure <a
+href="#fig:zombitronicacontrollers" data-reference-type="ref"
+data-reference="fig:zombitronicacontrollers">3</a>). It is made up of a
+sequencer for selecting the notes played by the 4 instruments over 8
+beats, 4 sliders for controlling the volume of each of the instruments,
+a two-dimensional slider for controlling a 5th instrument (its pitch and
+volume) and 3 potentiometers controlling the speed of the metronome,
+distortion and reverb. From a hardware point of view, all the phones are
+powered by a usb hub, and the phone generating the music is connected to
+the speaker via a 3,5mm jack. A laser-cut sheet of 3mm PMMA delimits the
+screen areas corresponding to the control interfaces, and holds the 4
+smartphones and the loudspeaker in place. Each component rests on a
+plate suspended from the top by a system of screws, nuts and
+spacers.</p>
+<h3 id="zombichord">Zombichord</h3>
+<p><em>Zombichord</em> is a second prototype inspired by the Omnichord<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> and built using an Android 5 tablet
+and an IOS smartphone. On this prototype, the <span
+class="math inline"><em>Node.js</em></span> server is run on the tablet,
+which also displays an interface for playing chords, and an iPhone 6
+displaying an interface for playing notes on the scale corresponding to
+that chord [figure <a href="#fig:zombichordinterface"
+data-reference-type="ref"
+data-reference="fig:zombichordinterface">4</a>].</p>
+<figure id="fig:zombichordinterface">
+<img src="images/zombichord.png" />
+<figcaption><em>Zombichord</em> is a the second prototype exploring the
+principle of <span class="math inline"><em>Zombitron</em></span>. It was
+designed by Romain Segaud and Marion Jolas, inspired by the
+Omnichord.</figcaption>
+</figure>
+<p>For the hardware, a thick piece of wood was hollowed out with a wood
+router to accommodate the two devices. Holes were drilled to allow the
+lightning-type cable connected to the iPhone to pass through on one side
+and a mini usb cable to supply power to the tablet on the other. The
+lightning cable is used to output both the sound signal and to supply
+power to the phone, so a few soldering points were used to make a small
+assembly that simply reveals a female jack (for the sound output) and a
+female coaxial socket for supplying 5V to the two devices.</p>
+<h2 id="outcome">Outcome</h2>
+<p>These two prototypes enabled me to test a web approach to creating
+two musical interfaces on discarded smartphones and tablets. Although
+only the touch screen was used, they already enabled me to identify
+certain opportunities and limitations linked to the age of these
+devices, particularly in terms of performance and functionality. The
+choice of implementing the software in webpage format on older
+smartphones, which have less computing power than today’s products, may
+mean that we have to use lightweight applications. Devices that only
+load a touch interface and send their data via <code>websockets</code>
+did not pose any problem, but the use of a library that requires a
+little more CPU processing, such as <em>Tone.js</em> doing sound
+synthesis, should be considered for rather more powerful smartphones. In
+order to eliminate the latency of the two prototypes, the use of
+<em>Tone.js</em> was restricted to the activation of pre-recorded
+samples. This opens up opportunities to explore how the combination of
+older and more efficient equipment can overcome these limitations. The
+second prototype was designed using a tablet running Android 5.0. For
+this tablet, the <span class="math inline"><em>Termux</em></span>
+application was no longer supported, which means that the package
+database is no longer updated, limiting the version of <span
+class="math inline"><em>Node.js</em></span> to version 12. A few
+readjustments to the code enabled me to build the application with <span
+class="math inline"><em>Node.js</em></span> 12 without any problems.</p>
+<h1
+id="studying-the-possibilities-offered-by-obsolete-smartphones">Studying
+the possibilities offered by obsolete smartphones</h1>
+<p>On the basis of the two explorations made through the
+<em>Zombitronica</em> and <em>Zombichord</em> prototypes, I have sought
+to confront this approach with a more general situation, to consider the
+limits that a variety of these old devices may have, and the ways in
+which they can be overcome. With a view to creating a common tool that
+would enable everyone to design with obsolete devices, I looked at a
+wider range of these devices to document, step by step, the specifics in
+terms of installation and configuration that I may encounter. I
+collected a set of 14 smartphones that had been given to me or that I
+had bought cheaply second-hand. For each of the phones, I went through
+the different stages to set up the basis of the <span
+class="math inline"><em>Zombitron</em></span> principle. This time, in
+addition to the touch sensor, I integrated the Inertial Measurement
+Units (IMU) sensors: gyroscope and accelerometer, common to most
+smartphones since 2012.</p>
+<p>During this exploration, I set up a common code base on a git
+repository<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a>, allowing me to run tests on the
+different devices, and which I improved as I went along so that it took
+into account the particularities of each one. This code can then be used
+as the basis for all interfaces created using the <span
+class="math inline"><em>Zombitron</em></span> principle, and can be
+expanded as we implement them. Additional resources on specific commands
+I have used can be found in Appendix <a href="#sec:supplementary"
+data-reference-type="ref" data-reference="sec:supplementary">8</a>.</p>
+<p>In this section, I break down the steps from the first switch-on to
+loading the webpage and sending the sensor data, documenting the
+obstacles I encountered depending on the device.</p>
+<figure id="fig:allphones">
+<img src="images/allphones.jpg" />
+<figcaption>Overview of the 14 discarded smartphones batch.</figcaption>
+</figure>
+<h2 id="turning-on-and-unlocking">Turning on and unlocking</h2>
+
+<figure id="tab:step1">
+<img src="images/tab1.png" />
+<figcaption>List of the 14 smartphones selected with their year of release and their ability to be used as a server unit, a hotspot unit and a client unit. Devices that could not be turned on or unlocked are marked in pink.</figcaption>
+</figure>
+
+<p>The first step for each smartphone is to turn it on and unlock it.
+Some of the phones in my batch had not been switched on for a long time,
+or had been considered “bricked” by their users. So for each phone, I
+began by charging the battery, then tried to switch it on. Some did not
+make it through this stage, and so I eliminated them from my batch as
+they require a more advanced level of repair. Table <a href="#tab:step1"
+data-reference-type="ref" data-reference="tab:step1">[tab:step1]</a>
+summarises which of the 14 smartphones could be turned on and unlocked,
+5 smartphones were eliminated at this stage. For example, this was the
+case with one of the two Samsung Galaxy S III <span
+class="math inline">(<code>3</code>)</span>, the Huawei Y6 <span
+class="math inline">(<code>11</code>)</span>, Moto E4 <span
+class="math inline">(<code>8</code>)</span> and the Oppo Find X2 <span
+class="math inline">(<code>14</code>)</span>. <span
+class="math inline">(<code>3</code>)</span>, <span
+class="math inline">(<code>8</code>)</span> and <span
+class="math inline">(<code>11</code>)</span> had no reaction when the
+power button was pressed, requiring a diagnosis beyond my scope. On the
+other hand, <span class="math inline">(<code>14</code>)</span> vibrated
+when switched on without displaying anything, suggesting a dead screen.
+To check whether the devices are detected as serial usb ports (and
+therefore check whether they are alive), I connected the smartphones to
+my computer to verify whether they were detected as a USB serial
+interface. The Oppo <span class="math inline">(<code>14</code>)</span>
+was indeed detected as an interface. An alternative rescue would
+therefore be to try connecting it to an external display using the “HDMI
+Alt Mode”<a href="#fn8" class="footnote-ref" id="fnref8"
+role="doc-noteref"><sup>8</sup></a> protocol, but this was beyond my
+scope. Interestingly, the Fairphone <span
+class="math inline">(<code>12</code>)</span> did not pass this stage
+either, because it was locked. After switching it on, I had to enter a
+password that I did not have, and I did not know the person who had
+given it to me. I naively tried to carry out a factory reset on the
+phone, but I came up against the Factory Reset Protection protocol,
+which requires signing in to the last Google account associated with the
+device. There are strategies, but they are time consuming, require
+scrolling many forums and “adventurous” operations, as I read on one of
+them. Some of these strategies involve exploiting security breaches that
+are patched over time, which means that the newer, or recently updated
+the phone, the less easy it is to bypass the FRP. So it is important to
+make sure that devices are reset to zero before disposing of them.</p>
+<h2 id="setting-up-a-server">Setting up a server</h2>
+<p>The second step is to examine which smartphones are capable of acting
+as a server, which involves running <span
+class="math inline"><em>Node.js</em></span> in my case. To install and
+run <span class="math inline"><em>Node.js</em></span>, <span
+class="math inline"><em>Zombitron</em></span> uses the <span
+class="math inline"><em>Termux</em></span><a href="#fn9"
+class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+application, which is only available on Android. As a result, the two
+iPhones <span class="math inline">(<code>1</code>)</span> and <span
+class="math inline">(<code>5</code>)</span> in my selection will not be
+able to be server units.</p>
+<p>There are several ways to download <span
+class="math inline"><em>Termux</em></span>, the easiest of which is to
+go to the Google Play Store<a href="#fn10" class="footnote-ref"
+id="fnref10" role="doc-noteref"><sup>10</sup></a> and download the
+application, but this is only available for devices with Android 11
+(released in 2020) or later. The other disadvantage is that this
+involves associating all devices with a Google account. For these
+reasons, I chose to install the application without going through the
+Google Play Store, but rather directly by downloading the
+<code>.apk</code> file. This process requires a few additional steps:
+installing <em>Android Debug Bridge</em> (<code>adb</code>)<a
+href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a>, and enabling USB debugging mode on
+the device to be able to load applications on the phone. These steps are
+widely documented on the web. Once this is done, it is possible to
+easily access the smartphone’s information and install <code>apk</code>
+files on it. The next step is to download the <code>apk</code> file, for
+example from <span class="math inline"><em>Termux</em></span>’s github<a
+href="#fn12" class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a>, selecting the file corresponding
+to the Android version and the device’s CPU ABI<a href="#fn13"
+class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>.
+Table <a href="#tab:server" data-reference-type="ref"
+data-reference="tab:server">[tab:server]</a> gives a summary of the
+different versions and CPU ABI’s of the Android devices in my batch.</p>
+<figure id="tab:server">
+<img src="images/tab2.png" />
+<figcaption>Summary of the Android versions, the ABI of each of the android Smartphones in the batch, the availability of Termux and, if applicable, the version of Node.js available.</figcaption>
+</figure>
+<p>Once <span class="math inline"><em>Termux</em></span> is installed
+and running, it is possible to install <span
+class="math inline"><em>Node.js</em></span>. (The smartphone must be
+connected to the internet first.) For devices running Android &lt;7, the
+version of <span class="math inline"><em>Termux</em></span> no longer
+updates the package database, which sometimes forces the use of
+discarded version packages<a href="#fn14" class="footnote-ref"
+id="fnref14" role="doc-noteref"><sup>14</sup></a>. The installation of
+<span class="math inline"><em>Termux</em></span> and <span
+class="math inline"><em>Node.js</em></span> went well on the device
+<span class="math inline">(<code>2</code>)</span> running Android 6. The
+version of <span class="math inline"><em>Node.js</em></span> available
+in Long Term Support (LTS) is <code>12.13.0</code>. However, an error
+occurred when using the <code>npm</code> command, which allows packages
+to be installed in <span class="math inline"><em>Node.js</em></span>.
+Unfortunately I did not have any other devices running Android 5 or 6 to
+compare, but as the tablet used in the <em>Zombichord</em> prototype
+runs Android 5, I know it is possible to use these OS versions. <span
+class="math inline"><em>Termux</em></span> is available from Android 5,
+which eliminates my device <span
+class="math inline">(<code>4</code>)</span> running Android 2.</p>
+<p>Once <span class="math inline"><em>Node.js</em></span> was installed,
+I used git to download my test environment. At this stage, the folder
+only contains a <span class="math inline"><em>Node.js</em></span>
+project and the necessary dependencies for <span
+class="math inline"><em>Zombitron</em></span>: <code>express</code> to
+create <code>http</code> servers, and <code>websocket</code> to use the
+real-time socket protocol for sending messages. The aim is to check that
+all versions of <span class="math inline"><em>Node.js</em></span> can
+generate servers with these two components, and if there are any
+particularities to take into account depending on the version of <span
+class="math inline"><em>Node.js</em></span>, to ensure that these are
+added to my code. As a result, and after a few syntax corrections linked
+to the different versions, both version <code>12.13.0</code> and the
+current LTS version (<code>22.15.0</code>) of <span
+class="math inline"><em>Node.js</em></span> can run the server.</p>
+<h2 id="setting-up-a-local-network">Setting up a local network</h2>
+<p>For the interface built with <span
+class="math inline"><em>Zombitron</em></span> to be standalone, at least
+one of the devices must be able to act as a hotspot to generate a local
+network among all the devices. While most devices allow this connection
+sharing option, some OSes require mobile data to activate this network
+sharing. This is the case for all IOS devices, and some Android-based
+interfaces like in my case here with device <span
+class="math inline">(<code>6</code>)</span> which has a One UI 1.1
+interface. Table <a href="#tab:step1" data-reference-type="ref"
+data-reference="tab:step1">[tab:step1]</a> summarises the devices in my
+sample that can be used as hotspots.</p>
+<h2 id="setting-up-web-clients">Setting up web clients</h2>
+<p>To test the possibilities of using each of the smartphones as a
+client, I developed, as in the case of the server, a code example which
+I put to the test on each of the devices and their browsers, and I
+improved it according to the problems encountered. I managed to get a
+touch interface working and to obtain IMU data from all the phones and
+send it to the server via <code>websocket</code>. I detail below the
+obstacles encountered and how I overcame them.</p>
+<h3 class="unnumbered" id="javascript-es6">Javascript ES6</h3>
+<p>To communicate with the server, clients use the javascript language.
+In 2015, a major version of javascript (ES6) was released, making some
+older browsers incompatible. This is the case, for example, with the
+browsers of <span class="math inline">(<code>4</code>)</span>. All the
+interfaces developed on <span
+class="math inline"><em>Zombitron</em></span> are compatible with the
+older version of JavaScript (ES5).</p>
+<h3 class="unnumbered" id="motion-sensors">Motion sensors</h3>
+<p>Most smartphones have two inertia sensors: the accelerometer and the
+gyroscope. In my batch, all the devices have an accelerometer, and all
+except <span class="math inline">(<code>7</code>)</span> <span
+class="math inline">(<code>9</code>)</span> <span
+class="math inline">(<code>10</code>)</span> <span
+class="math inline">(<code>13</code>)</span> a gyroscope. These two
+sensors respectively provide motion and orientation data via the
+<code>DeviceOrientationEvent</code> and <code>DeviceMotionEvent</code>
+interfaces.</p>
+<p>I was able to obtain sensor data from all the devices, taking into
+account the following small details in my code.</p>
+<p>– Safari on IOS 14.5 introduced a new security feature for access to
+inertial sensors: <code>requestDevicePermission</code>.</p>
+<p>– Access to sensor data requires a secure server (<code>https</code>)
+on most recent browsers, which I have enabled as an option in my
+code.</p>
+<h3 class="unnumbered" id="secured-server-https">Secured server
+(https)</h3>
+<p>A secure server is set up by creating a key and a certificate. Each
+certificate is linked to the server’s IP address. As secure servers are
+necessary for the use of inertial sensor data, I have created a script
+allowing certificates to be generated directly from a command line.</p>
+<p>Very old versions of Android Browser before 4.4.4 are incompatible
+with the <code>https</code> protocol. To avoid this problem on <span
+class="math inline">(<code>4</code>)</span>, I installed a version of
+Firefox (Firefox 31) that supports <code>https</code>. The
+implementation of secure servers also has the effect of displaying alert
+pages when the interface is loaded, but these can be bypassed, often by
+clicking on a link such as “I trust this website”.</p>
+<h3 class="unnumbered" id="secured-websockets-wss">Secured Websockets
+(wss)</h3>
+<p>When the server is set for https, the <code>websocket</code> protocol
+must also be secured. This is taken into account in my code, but in the
+case of IOS devices &lt; 13, it is necessary to install the certificates
+to use the <code>wss</code> protocol. To do this, the certificate needs
+to be downloaded, installed, then activated in the IOS settings :
+<code>Settings &gt; General &gt; About &gt; Certificate Trust Settings</code></p>
+<h2 id="outcome-1">Outcome</h2>
+<p>By taking a heterogeneous batch of smartphones, varying in their OS,
+release date and browser, I was able to explore in greater breadth the
+possibilities offered by a web approach such as <span
+class="math inline"><em>Zombitron</em></span>. This methodical and
+iterative work has also enabled me to develop a common code base that
+can run on all these devices, and that supports most of their specific
+features. This provides a base from which to create new applications and
+which can be fed with other functionalities and APIs.</p>
+<h1 id="integration-into-two-musicians-practices">Integration into two
+musicians’ practices</h1>
+<p>While I have investigated the potential of a web-based approach to
+creating controllers from obsolete smartphones, from a technical point
+of view, I am now trying to understand how this tool could be integrated
+into real practices, using the example of music interfaces. During my
+study, I had many exchanges with two friends, both professional
+musicians with a background in electronic music composition and
+performance using numerous controllers and synthesizers. We exchanged
+ideas about their practices and habits in using tools to produce and
+perform. Then we imagined how <span
+class="math inline"><em>Zombitron</em></span> could enable them to build
+their instrument or their musical controller, and more generally how
+they envision the directions this tool could take.</p>
+<p>Despite their very different practices and styles, Jean Turner<a
+href="#fn15" class="footnote-ref" id="fnref15"
+role="doc-noteref"><sup>15</sup></a> and s8jfou<a href="#fn16"
+class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>
+both have a strong focus on tools and machines, which they like to make
+their own by exploring the possibilities of customisation. Both have a
+particular affection for the restrictions that machines bring to their
+work, and at the same time the freedom that computers bring to sound
+design.</p>
+<p>Jean Turner’s musical performances are somewhere between dance and
+experimental music, often using samplers and sequencers that he
+interfaces with his computer via <em>Ableton</em><a href="#fn17"
+class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a>
+and MIDI<a href="#fn18" class="footnote-ref" id="fnref18"
+role="doc-noteref"><sup>18</sup></a>. On stage, his gestures and
+movements are at the heart of his performance. Jean Turner has built
+instruments and controllers using “Axoloti core” <span class="citation"
+data-cites="charles_using_nodate"></span> which he describes as a sort
+of audio and MIDI Swiss army knife, very simplified for the user. It
+allows him to do precise things according to his needs and to have
+certain functions that do not exist in other controllers.</p>
+<p>Questioning the tools and the visual composition on stage is
+particularly at the heart of the work of s8jfou. s8jfou makes electronic
+music essentially with his computer and builds his instruments with
+MAX/MSP<a href="#fn19" class="footnote-ref" id="fnref19"
+role="doc-noteref"><sup>19</sup></a> with which he interacts on stage.
+He has also built a few synthesizers<a href="#fn20" class="footnote-ref"
+id="fnref20" role="doc-noteref"><sup>20</sup></a> himself using
+micro-controllers such as <em>Teensy</em> <span class="citation"
+data-cites="edstrom_arduino_2016"></span> and <em>Raspberry PI pico</em>
+<span class="citation" data-cites="halfacree_get_2021"></span>.</p>
+<h2 id="textitzombitron-as-a-performing-tool-for-jean-turner"><span
+class="math inline"><em>Zombitron</em></span> as a performing tool for
+Jean Turner</h2>
+<figure id="fig:jeanturner">
+<img src="images/jean.jpg" />
+<figcaption>Jean Turner has created different mechanisms to design an
+interactive interface for playing with smartphones connected to his
+software via Open Sound Control.</figcaption>
+</figure>
+<p>When I presented my work on <span
+class="math inline"><em>Zombitron</em></span> to Jean Turner, he
+immediately imagined how he could integrate motion sensors into his
+scenic performance and composition. Using smartphones to perform opens
+up new horizons for him. “<em>I did not want to play with a computer on
+stage because I did not like the aesthetics. With <span
+class="math inline"><em>Zombitron</em></span>, it is logical because it
+democratises computer music even more and there is a playability that
+does not exist with other instruments.</em>” Jean Turner also mentions
+the educational aspect that this can engender in his stage performance:
+“<em>For the audience, turning knobs does not mean much, whereas seeing
+the sound change with the tilt of an old smartphone is more
+intuitive.</em>”</p>
+<p>Jean Turner started building a whole range of articulated supports
+using LEGO® Technic to use smartphones as controllers connected to his
+Ableton software with Open Sound Control. As shown Figure <a
+href="#fig:jeanturner" data-reference-type="ref"
+data-reference="fig:jeanturner">6</a>, he created several supports to
+hold his two smartphones and then mounted these supports on different
+mechanisms, allowing them to rotate on two or three axes. Some of these
+mechanisms make use of motors to activate a continuous rotation of one
+smartphone and lights activated by the weight of the smartphone when put
+in certain supports. While he was making his LEGO®, he sent me a number
+of videos, in which he describes his enthusiasm as he explores the
+interactions, the effects he will be able to generate and the way he
+will compose his live show. “<em>I can put one on top of the other, and
+then my values are the same for both!</em>”. “<em>I just thought I can
+even use it as percussions.</em>”</p>
+<h2
+id="zombee-a-collaborative-musical-instrument-for-s8jfou"><code>Zombee</code>,
+a collaborative musical instrument for s8jfou</h2>
+<figure id="fig:s8jfou">
+<img src="images/s8jouf.png" />
+<figcaption>s8jfou has begun designing <code>Zombee</code>, a
+collaborative instrument optimised to run on devices with low processing
+capacity. A and B show two of the four composition interfaces and C
+shows the conductor interface.</figcaption>
+</figure>
+<p>s8jfou immediately saw in <span
+class="math inline"><em>Zombitron</em></span> the possibility of
+creating a collaborative composition environment, and was stimulated by
+the idea of generating sound capable of being played by devices with
+very limited computing power.</p>
+<p>In 2022, <em>MAX</em> released <em>RNBO</em>, a library for exporting
+<em>MAX</em> projects (patches) in portable code to compile them
+directly for given platforms, in particular WebAssembly. They have also
+released an <code>npm</code> package <a href="#fn21"
+class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a>
+that allows this compiled code to be loaded directly via <span
+class="math inline"><em>Node.js</em></span>. From there, it was easy to
+imagine how to combine s8jfou’s practice of <em>MAX</em> and <span
+class="math inline"><em>Zombitron</em></span>.</p>
+<p>s8jfou has designed <code>Zombee</code>, which he began to implement
+in <em>MAX</em>. <code>Zombee</code> is an instrument consisting of 4
+playing interfaces and a master interface, enabling several people to
+compose and play together. The 4 tactile interfaces (Figure <a
+href="#fig:s8jfou" data-reference-type="ref"
+data-reference="fig:s8jfou">7</a> <code>(A)</code> and <code>(B)</code>)
+differ simply by the sample bank, and can be percussive, bass, synth,
+noise, etc. To this sound “search” interface, he added a sequencer to be
+able to compose. Added to these 4 instruments, he created an interface
+dedicated to the controlling the different parameters of the 4 instances
+(Figure <a href="#fig:s8jfou" data-reference-type="ref"
+data-reference="fig:s8jfou">7</a> <code>(C)</code>), the volume, the
+BPM, the different effects (Delay, Reverb,...). “<em>A bit like an
+orchestra conductor</em>”. s8jfou envisaged <code>Zombee</code> by
+thinking about the limits in terms of memory and computing capacity that
+the device generating the sound might have. To achieve this, he uses the
+principle of granular synthesis <span class="citation"
+data-cites="roads_introduction_1988"></span>, involving the use of
+samples of very short duration so that relatively light files can be
+loaded. He has designed his instrument so as to connect all the effects
+to a single output managed by the conductor, which also means that the
+effects (which consume a lot of CPU resources) are applied only once. He
+also identifies the advantage of versatility offered by this approach,
+imagining how it could be both stand-alone and used with a more powerful
+computer. “<em>Depending on the power of the device used, more or less
+can be done in sound synthesis. The tool is therefore very powerful if
+you want to use it, for example, with a recent computer but with old
+phones to control it remotely, but is also capable of doing more modest
+things when run from an old phone.</em>”</p>
+<h2 id="outcome-2">Outcome</h2>
+<p>These exchanges and the way in which s8jfou and Jean Turner envision
+the integration of obsolete smartphones into their work is very
+promising and opens up many avenues for reflection. The reuse of
+obsolete smartphones made accessible thanks to <span
+class="math inline"><em>Zombitron</em></span> has clearly stimulated my
+two friends, and largely motivates the continuation of this work, by
+developing specific tools to make their two prototype projects possible.
+I discuss the generative potential of these discussions and beginnings
+of work as well as the implications for tools and future work in the
+next section.</p>
+<h1 id="discussion-and-future-work">Discussion and future work</h1>
+<p>In this article, I explored how a web-based approach could enable the
+reuse of a heterogeneous set of obsolete smartphones and tablets varying
+in OS and release date. This work allowed me to explore how to create
+new interactive systems by combining devices of different natures as
+basic materials. This approach can be seen as an “augmentation” as
+described by Remy et al.<span class="citation"
+data-cites="remy_addressing_2014"></span>, as this combination is an
+augmentation of obsolete smartphones with other obsolete
+smartphones.</p>
+<p>During my experiments on 14 obsolete smartphones, I initiated the
+development of a code base that can be used as the starting point for
+various applications. In particular, I explored how this approach could
+be used in the work of musicians through discussions with s8jfou and
+Jean Turner. This study and exchanges open up some promising
+perspectives on ways of pursuing the work toward a toolkit and combining
+it with the various software tools used by musicians, other creative
+practitioners and beyond.</p>
+<p>The whole idea behind this work is to define the position of the
+cursor between the design opportunities and the device’s capabilities.
+In terms of design opportunities, this work is primarily focused on the
+possibilities for interaction offered by the combination of several
+obsolete smartphones or tablets. In the code base I have developed for
+the purposes of this study, I have integrated tactile, motion and
+orientation data by exploring the different constraints generated by the
+different ages and operating systems of smartphones. For now, my
+approach has been to start with the older ones and assess what they can
+do, assuming that the newer ones can also do it. Therefore, the first
+straightforward way of pursuing this work is to explore the other
+interaction possibilities offered by smartphones. For example, with the
+camera or microphone, which could easily be streamed using protocols
+such as WebRTC. In my sample of 14 phones, many are also equipped with a
+brightness sensor, a fingerprint reader, an NFC chip detector, and many
+others which are all interaction opportunities with which to design new
+systems. Access to the installation of recent browsers on older devices
+will also make it possible to benefit from the latest APIs such as
+SensorAPI<a href="#fn22" class="footnote-ref" id="fnref22"
+role="doc-noteref"><sup>22</sup></a>, USB<a href="#fn23"
+class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a>
+or even bluetooth<a href="#fn24" class="footnote-ref" id="fnref24"
+role="doc-noteref"><sup>24</sup></a>. The possibilities for interaction
+can also be extended by the simple fact that, by definition, any object
+capable of connecting to a network can be interfaced with <span
+class="math inline"><em>Zombitron</em></span>. It would be interesting
+to connect this work with the one of Norbisrath et al. <span
+class="citation" data-cites="norbisrath_empowering_2025"></span> on
+repurposing smartphones into gateways for IoT. More generally, exploring
+the limitations of a web approach based on <span
+class="math inline"><em>Node.js</em></span> is another avenue of
+research.</p>
+<p>In this work, I covered the fact that the capability of devices
+depends on their age and OS, and I explored these aspects in my study.
+However, capabilities also depend on other factors, in particular their
+general condition. Most of the smartphones I have used have been in
+pretty good condition, apart from some broken screens and batteries at
+the end of their life. It would therefore be important to continue this
+work, both by continuing to explore interactive capabilities, but also
+by confronting devices with possibly other limitations. Further work
+could also look at ways in which end-users can identify and choose
+combinations of obsolete devices based on their performance. And extend
+it to other, more application-optimal techniques.</p>
+<p>The other major part of the design opportunities is the different
+applications that this tool base will enable. Here, there are two
+different directions which are perfectly illustrated by the two distinct
+approaches of Jean Turner and s8jfou. In one case, Jean Turner envisages
+his use of <span class="math inline"><em>Zombitron</em></span> as a
+controller connected to <em>Ableton</em>, while s8jfou designs
+<code>Zombee</code> as a standalone. On the one hand, <span
+class="math inline"><em>Zombitron</em></span> must be capable of
+interfacing with the software and, on the other, the application is
+executed by the smartphone. These two approaches do not involve the same
+things.</p>
+<p>In the case of Jean Turner, this is very easy to envisage as it does
+not require much extra work from the smartphones. <span
+class="math inline"><em>Zombitron</em></span> is based on
+<code>websocket</code>, but it is also possible to communicate sensor
+data from other protocols such as Open Sound Control (OSC),
+<code>MQTT</code>, and others that are relatively easy to implement in
+the tool with <span class="math inline"><em>Node.js</em></span>. OSC is
+a relatively widespread protocol, not only for controlling music but
+also other VJing or real-time graphic composition software such as
+<em>Touch Designer</em> or <em>Resolume</em>. It would also be
+interesting to explore how a controller made from discarded smartphones
+would be considered by AV practitioners. It would also be simple to turn
+it into a stream deck.</p>
+<p>In the case of s8jfou however, the underlying challenge is to explore
+the capabilities of smartphones and see how to optimise applications and
+compose them specifically for computing performance. I was confronted
+with latency problems in the case of the two prototypes
+<em>Zombitronica</em> and <em>Zombichord</em>, using the Web Audio
+library <em>Tone.js</em>. At that point, the only strategy explored was
+to remove all the effects that consume resources. A very limiting
+approach in terms of functionality and creative possibilities for
+musicians.</p>
+<p>This opens up avenues of exploration for future work on web
+approaches to performance-constrained audio synthesis on obsolete
+smartphones <span class="citation"
+data-cites="tapparo_leveraging_2023"></span> and interactivity <span
+class="citation" data-cites="matuszewski_web-based_2020"></span>. From a
+web perspective in particular, one strategy to explore is the use of
+<em>WebAssembly</em><a href="#fn25" class="footnote-ref" id="fnref25"
+role="doc-noteref"><sup>25</sup></a>, a format that allows most hardware
+capabilities to be accessed from the web browser. It is on this
+principle that <em>RNBO</em>, the portable extension of <em>MAX</em>, is
+based. <em>MAX</em> is a popular tool among sound creators and it would
+therefore be a good entry point for exploring <em>WebAssembly</em> on
+obsolete smartphones. The idea of <code>Zombee</code> represents an
+exciting direction to explore in terms of how a combination of more or
+less powerful devices can generate rich music and allow musicians a wide
+playing environment.</p>
+<p>The advantage of collaborating with practitioners is that, as well as
+enabling a new approach to be compared with real practices, there can be
+an overlap of optimisation approaches. The latter can be thought out by
+the tool implementation, but also by the creator themself, for example
+here, the idea of using granular synthesis of s8jfou. The work initiated
+with <code>Zombee</code> is also very promising in terms of the
+collaborative aspect that s8jfou envisages for this prototype, and its
+approach is very much in line with the work of Golvet et al.<span
+class="citation" data-cites="golvet_designing_2024"></span> and
+Matuszewski et al.<span class="citation"
+data-cites="matuszewski_interaction_2019 matuszewski_soundworks_2019 matuszewski_web-based_2020"></span>.
+It would also be interesting to combine low-tech approaches to
+instrument making with <span
+class="math inline"><em>Zombitron</em></span>, such as Nunes et al.’s
+ingenious ideas featured in Sibilim <span class="citation"
+data-cites="nunes_sibilim_2019"></span>. Sustainability seems to have a
+place in NIME’s thinking <span class="citation"
+data-cites="masu_o_2023"></span>, and there are undoubtedly many bridges
+to be built with the work of this community, given their thinking and
+political positions on technologies <span class="citation"
+data-cites="jourdan_culture_2023"></span>. The case of music and art in
+general is a good research environment for this work since the
+communities are inclined to explore new approaches for creation. The
+musical axis allows many aspects at the heart of the problems of this
+work to be explored, namely interactivity, design and performance.</p>
+<p>That said, this work could also have implications in other contexts,
+especially because of the low cost of implementation made possible by
+the reuse. For example, it could be used for low-cost installation in
+the case of documentation tools in makerspaces and laboratories <span
+class="citation" data-cites="rigaud_exploring_2022"></span>, it could
+also enable rapid prototyping of interfaces and be used as inexpensive
+teaching material. s8jfou and Jean Turner both mentioned to me that it
+would be great to teach computer music in the workshop they or their
+friends are giving.</p>
+<p>My discussions with s8jfou and Jean Turner also suggest a generative
+power of the reuse of smartphones in creativity. Firstly, from the point
+of view of the aesthetics of using smartphones. Neither Jean Turner and
+s8jfou did particularly envisage the smartphones being concealed in an
+outfit, as had been explored in the case of <em>Zombitronica</em> and
+<em>Zombichord</em>. On the contrary, Jean Turner explained to me how he
+planned to make these phones an integral part of his live show.
+“<em>It’s great, I will be able to take them and put them next to each
+other, then put them back down again.</em>”. He also mentions the
+benefit of a smartphone as an interactive interface known by the
+audience, enabling them to understand what is happening on stage, as
+opposed to the action of turning knobs. This relates to Mansoux
+et al.<span class="citation"
+data-cites="mansoux_permacomputing_2023"></span>’s reflections on
+retro-computing aesthetics, which tend to persist in permacomputing
+approaches. Perhaps we could imagine an antero-computing aesthetic
+embodied by the smartphone or other smartwatches in the next few years.
+Another interesting generative aspect is that, although the approach is
+by no means a new technology, the idea of building a new system with
+obsolete smartphones seemed to stimulate my two friends. For example,
+gyroscopes have been around for a long time, as have smartphones
+connected to local networks, so <span
+class="math inline"><em>Zombitron</em></span> is not inventing anything
+that does not already exist. But in the case of Jean Turner and s8jfou,
+it has generated a lot of new ideas. Perhaps the anticipation of a
+simple, accessible tool opens up a whole range of new possibilities.</p>
+<p>Although this paper is essentially the beginning of work towards a
+toolbox to facilitate the reuse of obsolete smartphones, and my
+discussions were limited to two of my musician friends, it already
+identifies the opportunities that a collaborative approach between
+researchers and designers can generate for the design of tools. This is
+in line with my desire to build bridges between communities, and the
+importance of designing tools to encourage the appropriation of
+sustainable techniques <span class="citation"
+data-cites="roedl_sustainable_2015 lu_unmaking_2024"></span>.</p>
+<p>My aim is to push this study further by exploring the design of new
+prototypes to explore more interaction opportunities and software and
+hardware limitations in a research-creation process as a means of
+feeding this toolbox. The projects we have initiated with s8jfou and
+Jean Turner are an embodiment of this.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In this article, I presented <span
+class="math inline"><em>Zombitron</em></span>’s simple idea of making
+interfaces with obsolete smartphones using a high-level, web-based
+approach. Then, I’ve explored this approach in more depth, confronting
+it with a range of obsolete smartphones varying in OS and software
+version. This enabled me to start the work toward a promising toolkit to
+favour appropriation of the reuse of these discarded devices. Through
+exchanges with two musicians leading to two speculative prototypes of
+musical controllers, we were able to explore how this toolkit could
+possibly be relevant to their practice. This work gives rise to a number
+of directions for research into the development of re-use techniques to
+encourage appropriation by creative practitioners and beyond. Firstly,
+it provides inspiration to pursue work on this toolkit and to continue
+exploring the design opportunities offered by the combination of
+obsolete smartphones and other obsolete devices. Secondly, it motivates
+the collaborative approach with artists to determine how the use of
+smartphones could not only enable them to adopt a more sober and less
+costly approach to their use of tools, but also be integrated as a
+central element of their performance. More generally, this work
+represents a new step towards democratising the use of obsolete
+smartphones, despite their complexity and heterogeneity.</p>
+<div class="acks">
+<p>All the research, including the state of the art, the material and
+methods, the original thinking, the writing of this article and the
+development of the code base I used for testing, i.e. everything
+described outside section 3 of this article, was carried out from 28
+February 2025, by me if not otherwise specified, on my own time and with
+my own funds. The work on the two prototypes <em>Zombitronica</em> and
+<em>Zombichord</em> presented in section 3 was carried out while I was
+an employee of noesya, which retains ownership of them.<br />
+<br />
+I would like to thank Marion Jolas for her help in making the
+<em>Zombichord</em>, Villette Makerz for hosting me as a resident during
+the construction of <em>Zombitronica</em> and <em>Zombichord</em>, La
+Generale for hosting me as a resident during the writing of this article
+and Jean Turner and s8jfou for the time they devoted to me, their
+interest and their help, which makes the future of this research so
+promising.</p>
+</div>
+<h1 id="sec:supplementary">Test resources</h1>
+<h3 class="unnumbered"
+id="listing-all-the-usb-serial-devices-on-bash">Listing all the USB
+serial devices on bash</h3>
+<pre><code>ls /dev/{tty,cu}.*</code></pre>
+<h3 class="unnumbered"
+id="obtaining-information-about-an-android-device-from-adb">Obtaining
+information about an Android device from <code>adb</code></h3>
+<pre><code>adb shell getprop ro.build.version.release
+adb shell getprop ro.product.cpu.abi</code></pre>
+<h3 class="unnumbered"
+id="downloading-necessary-packages-on-the-android-phone-via-textittermux">Downloading
+necessary packages on the Android phone via <span
+class="math inline"><em>Termux</em></span></h3>
+<pre><code>pkg update --allow-unauthenticated
+pkg install nodejs-lts git openssl-tool
+node -v #should give the node version
+npm -v #should give the npm version</code></pre>
+<h3 class="unnumbered"
+id="downloading-the-test-environment-using-git">Downloading the test
+environment using <code>git</code></h3>
+<pre><code>git clone --recursive [repository].git</code></pre>
+<p><code>[repository]</code> is available at <a
+href="https://zombitron.clararigaud.com"
+class="uri">https://zombitron.clararigaud.com</a> under GPU GPL-3.0
+licence.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://endoflife.date/ios"
+class="uri">https://endoflife.date/ios</a><a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://en.wikipedia.org/wiki/IOS_version_history#Hardware_support"
+class="uri">https://en.wikipedia.org/wiki/IOS_version_history#Hardware_support</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a
+href="https://en.wikipedia.org/wiki/List_of_custom_Android_distributions"
+class="uri">https://en.wikipedia.org/wiki/List_of_custom_Android_distributions</a><a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.recyclism.com/"
+class="uri">https://www.recyclism.com/</a><a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.pouet.net/prodlist.php"
+class="uri">https://www.pouet.net/prodlist.php</a><a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://en.wikipedia.org/wiki/Omnichord"
+class="uri">https://en.wikipedia.org/wiki/Omnichord</a><a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>The code base used in this article is preserved here: <a
+href="https://zombitron.clararigaud.com"
+class="uri">https://zombitron.clararigaud.com</a><a href="#fnref7"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href=" https://www.hdmi.org/spec/typec" class="uri">
+https://www.hdmi.org/spec/typec</a><a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://termux.dev/en/"
+class="uri">https://termux.dev/en/</a><a href="#fnref9"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a
+href="https://play.google.com/store/apps/details?id=com.termux"
+class="uri">https://play.google.com/store/apps/details?id=com.termux</a><a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://developer.android.com/tools/adb"
+class="uri">https://developer.android.com/tools/adb</a><a
+href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://github.com/termux/termux-app"
+class="uri">https://github.com/termux/termux-app</a><a href="#fnref12"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Android Binary Interface: <a
+href="https://developer.android.com/ndk/guides/abis"
+class="uri">https://developer.android.com/ndk/guides/abis</a><a
+href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><a
+href="https://github.com/termux/termux-app/wiki/Termux-on-android-5-or-6"
+class="uri">https://github.com/termux/termux-app/wiki/Termux-on-android-5-or-6</a><a
+href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><a
+href="https://abstraction-mathematique.bandcamp.com/"
+class="uri">https://abstraction-mathematique.bandcamp.com/</a><a
+href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><a href="https://s8jfou.bandcamp.com/"
+class="uri">https://s8jfou.bandcamp.com/</a><a href="#fnref16"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><a href="https://www.ableton.com/"
+class="uri">https://www.ableton.com/</a><a href="#fnref17"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><a href="https://en.wikipedia.org/wiki/MIDI"
+class="uri">https://en.wikipedia.org/wiki/MIDI</a><a href="#fnref18"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p><a href="https://cycling74.com/products/max"
+class="uri">https://cycling74.com/products/max</a><a href="#fnref19"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p><a href="https://www.s8jfou.com/synth.html"
+class="uri">https://www.s8jfou.com/synth.html</a><a href="#fnref20"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p><a href="https://www.npmjs.com/package/@rnbo"
+class="uri">https://www.npmjs.com/package/@rnbo</a><a href="#fnref21"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p><a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs</a><a
+href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p><a
+href="https://developer.mozilla.org/en-US/docs/Web/API/WebUSB_API"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/API/WebUSB_API</a><a
+href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p><a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API</a><a
+href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p><a href="https://webassembly.org/"
+class="uri">https://webassembly.org/</a><a href="#fnref25"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
