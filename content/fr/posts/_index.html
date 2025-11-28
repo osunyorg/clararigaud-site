@@ -74,13 +74,6 @@ section_taxonomies:
     slug: ""
     path: ""
     categories:
-      - permalink: "/fr/news/short-news/"
-        path: "/posts_categories/news/short-news"
-        slug: "news/short-news"
-        file: "content/fr/posts_categories/news/short-news/_index.html"
-        name: >-
-          Brêves
-        count: 17
       - permalink: "/fr/publications/"
         path: "/posts_categories/publications"
         slug: "publications"
@@ -95,6 +88,15 @@ section_taxonomies:
         name: >-
           Actualités
         count: 17
+        children:
+          - permalink: "/fr/news/short-news/"
+            path: "/posts_categories/news/short-news"
+            slug: "news/short-news"
+            file: "content/fr/posts_categories/news/short-news/_index.html"
+            name: >-
+              Brêves
+            count: 17
+
 
 
 contents_reading_time:

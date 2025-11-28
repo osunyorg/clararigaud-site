@@ -74,13 +74,6 @@ section_taxonomies:
     slug: ""
     path: ""
     categories:
-      - permalink: "/en/news/short-news/"
-        path: "/posts_categories/news/short-news"
-        slug: "news/short-news"
-        file: "content/en/posts_categories/news/short-news/_index.html"
-        name: >-
-          Short-news
-        count: 17
       - permalink: "/en/publications/"
         path: "/posts_categories/publications"
         slug: "publications"
@@ -95,6 +88,15 @@ section_taxonomies:
         name: >-
           News
         count: 17
+        children:
+          - permalink: "/en/news/short-news/"
+            path: "/posts_categories/news/short-news"
+            slug: "news/short-news"
+            file: "content/en/posts_categories/news/short-news/_index.html"
+            name: >-
+              Short-news
+            count: 17
+
 
 
 contents_reading_time:
